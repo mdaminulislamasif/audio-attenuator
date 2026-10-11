@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>এম্প্লিফায়ার টু মোবাইল অডিও কনভার্টার ও পার্টস গাইড</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --surface-hover: #334155;
+            --border: #475569;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #38bdf8;
+            --primary-hover: #0284c7;
+            --accent: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 10px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .alert-box {
+            background-color: rgba(239, 68, 68, 0.15);
+            border: 2px solid var(--danger);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .alert-title {
+            color: var(--danger);
+            font-size: 1.25rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .alert-content {
+            color: #fca5a5;
+            font-size: 0.95rem;
+        }
+
+        .alert-photos {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .alert-photos img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--danger);
+        }
+
+        .summary-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .price-badge {
+            display: inline-block;
+            background-color: rgba(16, 185, 129, 0.2);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 5px;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 220px;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .card-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .buy-btn:hover {
+            opacity: 0.9;
+        }
+
+        .wiring-section {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 35px;
+        }
+
+        .diagram-img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid var(--border);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding: 20px 0;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>এম্প্লিফায়ার / স্পিকার টু মোবাইল অডিও কনভার্টার</h1>
+            <p class="subtitle">সব প্রয়োজনীয় পার্টসের ফটো, আনুমানিক দাম ও দারাজ কেনার সরাসরি লিংক</p>
+        </header>
+
+        <!-- গুরুত্বপূর্ণ সতর্কবার্তা -->
+        <div class="alert-box">
+            <div class="alert-title">
+                ⚠️ অত্যন্ত গুরুত্বপূর্ণ সতর্কতা (KM-3802-04 বোর্ড সম্পর্কে)
+            </div>
+            <div class="alert-content">
+                <p>আপনার ফোল্ডারে থাকা <strong>KM-3802-04 机板</strong> বোর্ডটি আসলে একটি <strong>মশার ব্যাট (Mosquito Racket) / চার্জিং ইনভার্টার সার্কিট</strong>।</p>
+                <p style="margin-top: 8px;"><strong>সাবধান:</strong> এই বোর্ডের কোনো তার কখনোই মোবাইল ফোনের সাথে সংযোগ করবেন না! এতে ১০০০V থেকে ৩০০০V হাই ভোল্টেজ উৎপন্ন হয় এবং ডাইরেক্ট ২২০V এসি কানেকশন থাকে, যা ফোনের লজিক বোর্ড সম্পূর্ণ পুড়িয়ে ফেলবে এবং মারাত্মক বৈদ্যুতিক শক দিতে পারে।</p>
+                <div class="alert-photos">
+                    <div>
+                        <img src="WhatsApp Image 2026-10-11 at 10.50.19 PM.jpeg" alt="Mosquito Racket Board">
+                        <div style="font-size: 11px; text-align: center; color: #fca5a5;">মশার ব্যাটের সার্কিট বোর্ড</div>
+                    </div>
+                    <div>
+                        <img src="WhatsApp Image 2026-10-11 at 10.51.24 PM.jpeg" alt="KM-3802-04 Label">
+                        <div style="font-size: 11px; text-align: center; color: #fca5a5;">KM-3802-04 নম্বর</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- খরচ সারাংশ -->
+        <div class="summary-card">
+            <h2>💰 মোট খরচের হিসাব</h2>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px;">
+                    <h3>পদ্ধতি ১: রেডিমেড নয়েজ আইসোলেটর (সহজ ও নিরাপদ)</h3>
+                    <p style="color: var(--text-muted);">কোনো ঝালাই বা সোল্ডারিং ছাড়াই সরাসরি প্লাগ-অ্যান্ড-প্লে।</p>
+                    <div class="price-badge">মোট: ~৪৫০ – ৫৫০ টাকা</div>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <h3>পদ্ধতি ২: নিজে সার্কিট তৈরি (DIY সোল্ডারিং)</h3>
+                    <p style="color: var(--text-muted);">ট্রান্সফরমার, রেজিস্টর ও ৩.৫ মিমি জ্যাক নিজে ঝালাই করে তৈরি।</p>
+                    <div class="price-badge">মোট: ~২৫০ – ৩৫০ টাকা</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- প্রডাক্ট লিস্ট ও ফটো -->
+        <h2>🛒 প্রয়োজনীয় সামগ্রী ও দারাজ লিংক</h2>
+        <div class="grid">
+            <!-- 1. Ground Loop Isolator -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img class="card-img" src="ground_loop_isolator.jpg" alt="Ground Loop Noise Isolator">
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">Ground Loop Noise Isolator (3.5mm)</div>
+                        <div class="card-desc">সবচেয়ে নিরাপদ রেডিমেড ফিল্টার। কোনো সোল্ডারিং ছাড়াই ফোনের সাথে সরাসরি সংযোগ দেওয়া যায়।</div>
+                    </div>
+                    <div>
+                        <div class="card-price">দাম: ২৫০ – ৪৫০ ৳</div>
+                        <a href="https://www.daraz.com.bd/catalog/?q=ground+loop+noise+isolator" target="_blank" class="buy-btn">দারাজে কিনুন ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Mic Splitter Cable -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img class="card-img" src="mic_splitter_cable.jpg" alt="3.5mm TRRS Splitter">
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">3.5mm TRRS Headphone & Mic Splitter</div>
+                        <div class="card-desc">মোবাইলের অডিও পোর্টে আলাদা মাইক্রোফোন ইনপুট দেওয়ার জন্য বাধ্যতামূলক এডাপ্টার কেবল।</div>
+                    </div>
+                    <div>
+                        <div class="card-price">দাম: ৮০ – ১৫০ ৳</div>
+                        <a href="https://www.daraz.com.bd/catalog/?q=headphone+mic+splitter+3.5mm" target="_blank" class="buy-btn">দারাজে কিনুন ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Audio Transformer & Components -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img class="card-img" src="audio_components.jpg" alt="Audio Components">
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">EI-14 600:600 Audio Transformer</div>
+                        <div class="card-desc">অডিও আইসোলেশন ট্রান্সফরমার। স্পিকারের শক্তিশালী সিগন্যালকে নিরাপদে ফোনের জন্য আলাদা করে।</div>
+                    </div>
+                    <div>
+                        <div class="card-price">দাম: ৭০ – ১৫০ ৳</div>
+                        <a href="https://www.daraz.com.bd/catalog/?q=600+600+audio+transformer" target="_blank" class="buy-btn">দারাজে কিনুন ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Electret Mic Capsule -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img class="card-img" src="audio_components.jpg" alt="Mic Capsules">
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">Electret Mic Capsule (৫-১০ পিস)</div>
+                        <div class="card-desc">স্পিকারকে মাইক না বানিয়ে খাঁটি মাইক্রোফোন ব্যবহারের জন্য আসল কনডেন্সার মাইক ক্যাপসুল।</div>
+                    </div>
+                    <div>
+                        <div class="card-price">দাম: ৫০ – ১২০ ৳</div>
+                        <a href="https://www.daraz.com.bd/catalog/?q=electret+microphone+capsule" target="_blank" class="buy-btn">দারাজে কিনুন ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Resistor Kit -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img class="card-img" src="audio_components.jpg" alt="Resistors">
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">Resistor Pack (10kΩ, 1kΩ, 100Ω)</div>
+                        <div class="card-desc">সিগন্যাল অ্যাটেনুয়েশন ও ভোল্টেজ ডিভাইডার বানানোর জন্য প্রয়োজনীয় রেজিস্টর।</div>
+                    </div>
+                    <div>
+                        <div class="card-price">দাম: ৬০ – ১২০ ৳</div>
+                        <a href="https://www.daraz.com.bd/catalog/?q=resistor+kit+electronic+components" target="_blank" class="buy-btn">দারাজে কিনুন ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Finished DIY Project Box -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img class="card-img" src="6d33e9ec-cb0d-4f2d-8bca-fc60e46c1bf9.jfif" alt="Project Model">
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">সম্পূর্ণ প্রস্তুত সার্কিট বক্স মডেল</div>
+                        <div class="card-desc">সব কম্পোনেন্ট জোড়া লাগানোর পর আপনার প্রজেক্ট বক্সটি দেখতে যেমন হবে।</div>
+                    </div>
+                    <div>
+                        <div class="card-price">স্ট্যাটাস: রেফারেন্স ডিজাইন</div>
+                        <a href="6d33e9ec-cb0d-4f2d-8bca-fc60e46c1bf9.jfif" target="_blank" class="buy-btn">বড় করে ছবি দেখুন</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- সার্কিট কানেকশন ও ওয়্যারিং গাইড -->
+        <div class="wiring-section">
+            <h2>🔌 ওয়্যারিং ও কানেকশন ডায়াগ্রাম</h2>
+            <p>আপনার ফোল্ডারে থাকা বিস্তারিত ডায়াগ্রাম অনুযায়ী কানেকশন চিত্র নিচে দেওয়া হলো:</p>
+            <img src="4e117c00-5b46-402e-be10-3c6466dd897c.jfif" class="diagram-img" alt="Wiring Guide">
+            <img src="949ca7e0-85f4-4867-bbae-386d0f538b0a.jfif" class="diagram-img" alt="Circuit Schematic">
+        </div>
+
+        <footer>
+            <p>ফাইলটি আপনার ফোল্ডারে সংরক্ষিত হয়েছে। যেকোনো ব্রাউজার দিয়ে এটি সরাসরি দেখতে পারবেন।</p>
+        </footer>
+    </div>
+</body>
+</html>
